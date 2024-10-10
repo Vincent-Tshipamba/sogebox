@@ -4,20 +4,17 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Client>
- */
 class ClientFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         return [
-            //
+            'nom' => $this->faker->company(), // Nom d'une entreprise
+            'type_client' => $this->faker->randomElement(['Particulier', 'Entreprise']),
+            'telephone' => $this->faker->phoneNumber(),
+            'email' => $this->faker->unique()->safeEmail(),
+            'adresse' => $this->faker->address(),
+            'images' => $this->faker->imageUrl(), // URL d'une image
         ];
     }
 }

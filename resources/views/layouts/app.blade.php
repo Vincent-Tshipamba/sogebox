@@ -1,101 +1,129 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    {{-- <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Yetoo Tech.">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--favicon-->
+    <link rel="icon" href="{{ asset('assets/images/favicon-32x32.png') }}" type="image/png" />
+    <!--plugins-->
+    <link href="{{ asset('assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
+    <!-- loader-->
+    <link href="{{ asset('assets/css/pace.min.css') }}" rel="stylesheet" />
+    <script src="{{ asset('assets/js/pace.min.js') }}"></script>
+    <!-- Bootstrap CSS -->
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/bootstrap-extended.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/uicons-regular-rounded.css') }}" rel="stylesheet">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <link rel="icon" href="{{ asset('assets/images/favicon-32x32.png') }}" type="image/png" />
+    <!--plugins-->
+    <link rel="stylesheet" href="{{ asset('assets/css/print.css') }}">
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head> --}}
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8">
-        <meta name="Author" content="Yetoo Tech.">
-        <meta name="renderer" content="webkit">
-        <meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
-        <title>Sogboox</title>
-        <!--JS-->
-        {{-- <script src="js/i18n_en.js?v=1.3"></script>
-        <script src="js/i18n_en.js?v=1.3"></script>
-        <script src="/js/iexplore_patch.min.js?v=8.0"></script>
-        <script src="/js/formdata.min.js?v=1.0"></script> --}}
-        
-        {{-- <script src="js/html5shiv.min.js?v=3.7.3"></script>
-        <script src="js/respond.min.js?v=1.4.2"></script>
-        <script src="js/i18n.js?v=1.2"></script>
-      --}}
-      
-        {{-- <script src="js/lodash.min.js?v=4.17.11"></script>
-        <script src="js/utf8.min.js?v=3.0.0"></script>
-        <script src="js/cookies.min.js?v=1.2.3"></script>
-        <script src="js/moment.min.js"></script>
-        <script src="js/fullcalendar.min.js"></script>
-        <script src="js/baseISSObject.min.js"></script>
-        <script src="js/jsLoader.js?v=0.0.0.3"></script>   --}}
-        {{-- <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script> --}}
-        <!--Static-->
-        <link rel="shortcut icon" href="/media/images/BioTime.ico" type="image/x-icon" sizes="16x16 24x24 32x32 64x64">
-    
-        <!--suppress JSUnresolvedVariable -->
-      
-        <link rel="stylesheet" type="text/css" href="css/base.css?v=20210409">
-        <link rel="stylesheet" type="text/css" href="css/rtl.css">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" media="screen" href="css/layui.css">
-        <link rel="stylesheet" type="text/css" media="screen" href="css/layui.widgets.min.css">
-        <link rel="stylesheet" type="text/css" href="css/model.css">
-        <link rel="stylesheet" type="text/css" href="css/xadmin.main.min.css?v=1.1.1">
-        <link rel="stylesheet" type="text/css" href="css/multi-switch.min.css?v=1.1.1">
-        <link rel="stylesheet" type="text/css" href="css/noty.css?v=3.1.4">
-        <link rel="stylesheet" type="text/css" href="css/spectrum.min.css?v=1.8.1">
-        <link rel="stylesheet" type="text/css" href="css/extension.css?v=11.019">
+    <link href="{{ asset('assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-        <!-- Use Awesome Style for zTree -->
-        <link rel="stylesheet" type="text/css" href="css/awesome.css">
-        <link rel="stylesheet" type="text/css" href="css/awesome.extended.min.css">
-        <!-- Font-Awesome -->
-        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="css/layui.admin.css?v=20210315">
-        <link rel="stylesheet" type="text/css" href="css/datepicker.min.css">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap-clockpicker/bootstrap-clockpicker.min.css">
-        <link rel="stylesheet" type="text/css" href="css/filters.css?v=1.1.1">
-        <link rel="stylesheet" type="text/css" href="css/camera.css">
-        
-      <link id="layuicss-laydate" rel="stylesheet" href="css/laydate.css?v=5.3.0" media="all">
-      <link id="layuicss-layer" rel="stylesheet" href="css/layer.css?v=3.5.0" media="all">
-      <link id="layuicss-skincodecss" rel="stylesheet" href="css/code.css?v=2" media="all">
-      <link rel="stylesheet" type="text/css" href="{{asset('css/uicons-regular-rounded.css')}}">
-      <link rel="stylesheet" type="text/css" href="{{asset('css/uicons-solid-straight.css')}}">
-      <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
-    </head>
-    <body>
-        <div class="layui-layout layui-layout-admin"">
-            <!-- Page Heading -->
-            @include('layouts.navigation')
-            <!-- Page Content -->
-            <div id="dashboard" class="dashboard-main-body">
-                @yield('content')
-            </div>
+    <title>Sogebox</title>
+</head>
 
+<body>
+    <!--wrapper-->
+    <div class="wrapper">
+        <!--Start Side bar wrapper and Header -->
+        @include('layouts.navigation')
+        <!--End Side bar wrapper and Header -->
+
+        <!--start page wrapper -->
+        <div class="page-wrapper">
+            {{ $slot }}
         </div>
-        {{-- Script --}}
-        <script src="js/jquery-3.5.1.min.js?v=3.5.1"></script>
-        <script src="js/jquery.form.js?v=4.2.2"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="{{asset('/js/layui.js')}}" type="text/javascript"></script>
-        <script src="js/moment.min.js"></script>
-        <script src="{{asset('/js/echarts.min.js')}}"></script>
-        {{-- <script src="js/dashboard.js"></script> --}}
-       
-        <script src="js/app.js"></script>
-        <script>
-            
-        </script>
-    </body>
+        <!--end page wrapper -->
+
+        <!--start overlay-->
+        <div class="overlay toggle-icon"></div>
+        <!--end overlay-->
+
+        <!--Start Back To Top Button-->
+        <a href="javaScript:;" class="back-to-top">
+            <i class='bx bxs-up-arrow-alt'></i>
+        </a>
+        <!--End Back To Top Button-->
+
+        <footer class="page-footer">
+            <p class="mb-0">Copyright © {{ date('Y') }}. All right reserved.</p>
+        </footer>
+
+    </div>
+    <!--end wrapper-->
+
+    <!-- start switcher -->
+    @include('partials.theme-switcher')
+    <!-- end switcher -->
+
+    {{-- Script --}}
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+    <!--plugins-->
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/simplebar/js/simplebar.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/metismenu/js/metisMenu.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
+    <script src="{{ asset('assets/plugins/chartjs/chart.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
+    <script src="{{ asset('assets/plugins/jquery.easy-pie-chart/jquery.easypiechart.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/sparkline-charts/jquery.sparkline.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/jquery-knob/excanvas.js') }}"></script>
+    <script src="{{ asset('assets/plugins/jquery-knob/jquery.knob.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
+    <script src="{{ Vite::asset('node_modules/flowbite/dist/flowbite.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/validation/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/validation/validation-script.js') }}"></script>
+    <script src="{{ Vite::asset('node_modules/chart.js/dist/chart.umd.js') }}"></script>
+    <script src="{{ Vite::asset('node_modules/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function() {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
+    <script>
+        $('body').attr('class', 'bg-theme bg-theme2');
+        $(function() {
+            $(".knob").knob();
+        });
+    </script>
+    <!--app JS-->
+    <script src="{{ asset('assets/js/app.js') }}"></script>
+
+    @yield('script')
+</body>
+
 </html>

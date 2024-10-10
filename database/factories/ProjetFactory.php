@@ -2,22 +2,19 @@
 
 namespace Database\Factories;
 
+use App\Models\Commande;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Projet>
- */
 class ProjetFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         return [
-            //
+            'commande_id' => Commande::factory(), // Utilisation de la factory de Commande
+            'temps' => $this->faker->word(), // Temps aléatoire (peut être ajusté selon vos besoins)
+            'resume' => $this->faker->text(200), // Résumé aléatoire
+            'statut' => $this->faker->randomElement(['en cours', 'terminé', 'annulé']), // Statut aléatoire
+            'date_echeance' => $this->faker->date(), // Date d'échéance aléatoire
         ];
     }
 }

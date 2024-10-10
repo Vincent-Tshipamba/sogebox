@@ -14,6 +14,7 @@ return new class extends Migration
             $table->foreignId('categorie_produit_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->text('produits');
             $table->integer('quantite_en_stock');
+            $table->decimal('prix_unitaire', 10, 2)->default(0);
             $table->text('description')->nullable();
             $table->timestamps();
         });

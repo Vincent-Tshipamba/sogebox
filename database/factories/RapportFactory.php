@@ -4,20 +4,14 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Rapport>
- */
 class RapportFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         return [
-            //
+            'employe_id' => \App\Models\Employe::factory(), // Utilisation de la factory de Employe
+            'resume' => $this->faker->paragraph(),
         ];
+
     }
 }

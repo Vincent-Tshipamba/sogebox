@@ -7,6 +7,8 @@ export default {
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
+        "./node_modules/flowbite/**/*.js",
+        "node_modules/preline/dist/*.js",
     ],
 
     theme: {
@@ -14,8 +16,16 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                'custom-dark': '#2f464d',
+                'bg-chart': '#132329'
+            },
         },
     },
 
-    plugins: [forms],
+    plugins: [
+        forms,
+        require('flowbite/plugin'),
+        require('preline/plugin')
+    ],
 };

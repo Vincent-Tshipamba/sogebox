@@ -13,7 +13,7 @@ return new class extends Migration
             $table->uuid('_id')->unique();
             $table->foreignId('commande_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('temps');
-            $table->string('resume');
+            $table->text('resume');
             $table->string('statut');
             $table->date('date_echeance');
             $table->timestamps();

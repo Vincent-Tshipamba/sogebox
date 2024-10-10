@@ -13,9 +13,10 @@ return new class extends Migration
             $table->uuid('_id')->unique();
             $table->string('nom');
             $table->string('type_client');
-            $table->string('telephone');
-            $table->string('adresse');
-            $table->string('images');
+            $table->string(column: 'email')->unique();
+            $table->string('telephone')->nullable();
+            $table->text('adresse')->nullable();
+            $table->string('images')->nullable();
             $table->timestamps();
         });
     }

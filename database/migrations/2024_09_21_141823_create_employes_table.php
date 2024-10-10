@@ -23,6 +23,7 @@ return new class extends Migration
             $table->date('date_embauche');
             $table->string('salaire');
             $table->string('poste');
+            $table->boolean('est_chef')->default(false);
             $table->foreignId('departement_id')
                 ->constrained()
                 ->cascadeOnDelete()

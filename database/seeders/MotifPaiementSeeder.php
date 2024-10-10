@@ -2,16 +2,14 @@
 
 namespace Database\Seeders;
 
+use App\Models\MotifPaiement;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class MotifPaiementSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        //
+        MotifPaiement::factory(100)->create();
     }
 }

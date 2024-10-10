@@ -2,22 +2,20 @@
 
 namespace Database\Factories;
 
+use App\Models\Projet;
+use App\Models\Employe;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Tache>
- */
 class TacheFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         return [
-            //
+            'employe_id' => Employe::factory(), // Utilisation de la factory de Employe
+            'projet_id' => Projet::factory(), // Utilisation de la factory de Projet
+            'date' => $this->faker->date(),
+            'statut' => $this->faker->randomElement(['en cours', 'terminée', 'à faire']), // Statut aléatoire
+            'description' => $this->faker->text(200), // Description de 200 caractères
         ];
     }
 }

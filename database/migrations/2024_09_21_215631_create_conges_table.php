@@ -15,6 +15,7 @@ return new class extends Migration
             $table->date('date_debut');
             $table->date('date_fin');
             $table->text('motif');
+            $table->string('statut')->default('Non examiné');
             $table->timestamps();
         });
     }

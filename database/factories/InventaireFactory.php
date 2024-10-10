@@ -4,20 +4,14 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Inventaire>
- */
 class InventaireFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         return [
-            //
+            'produit_id' => \App\Models\Produit::factory(), // Utilisation de la factory de Produit
+            'mouvement' => $this->faker->word(),
+            'quantite' => $this->faker->numberBetween(1, 100), // Quantité entre 1 et 100
         ];
     }
 }

@@ -4,20 +4,16 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Paiement>
- */
 class PaiementFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         return [
-            //
+            'employe_id' => \App\Models\Employe::factory(), // Utilisation de la factory de Employe
+            'date' => $this->faker->date(),
+            'resume' => $this->faker->sentence(),
+            'motif_paiement_id' => \App\Models\MotifPaiement::factory(), // Utilisation de la factory de MotifPaiement
         ];
+
     }
 }

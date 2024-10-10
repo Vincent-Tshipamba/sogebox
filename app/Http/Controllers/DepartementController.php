@@ -2,65 +2,71 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employe;
 use App\Models\Departement;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use App\Http\Requests\StoreDepartementRequest;
 use App\Http\Requests\UpdateDepartementRequest;
 
 class DepartementController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $departements = Departement::withCount('employes')->with(['employes' => function ($query) {
+            $query->where('est_chef', true);
+        }])->get();
+
+        $employes = Employe::all();
+
+        return view('departements.index', compact('departements', 'employes'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreDepartementRequest $request)
     {
-        //
+        try {
+            // Create the department
+            $departement = new Departement();
+            $departement->libelle = $request->input('libelle');
+
+            // Save the department to the database
+            $departement->save();
+            return redirect()->route('departements.index')->with('success', 'Département créé avec succès.');
+        } catch (\Throwable $th) {
+            Log::error('Erreur lors de la création du departement : ' . $th->getMessage());
+            return back()->withErrors(['error', 'Une erreur s\'est produite lors de la creation du departement.'])->withInput();
+        }
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Departement $departement)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Departement $departement)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateDepartementRequest $request, Departement $departement)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Departement $departement)
     {
-        //
+        try {
+            $departement->delete();
+
+            return back()->with('success', 'Département supprimé avec succès !');
+        } catch (\Throwable $th) {
+            Log::error('Erreur lors de la suppression du departement : ' . $th->getMessage());
+            return back()->with('error', 'Une erreur s\'est produite lors de la suppression du département');
+        }
     }
 }

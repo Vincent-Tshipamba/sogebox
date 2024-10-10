@@ -18,9 +18,9 @@ return new class extends Migration
                 ->cascadeOnUpdate();
 
             $table->date('date');
-            
+
             $table->text('resume');
-            $table->foreignId('motif_id')
+            $table->foreignId('motif_paiement_id')
                 ->constrained()
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();

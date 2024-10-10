@@ -11,11 +11,13 @@ return new class extends Migration
         Schema::create('factures', function (Blueprint $table) {
             $table->id();
             $table->uuid('_id')->unique();
+            $table->integer('compteur_journalier')->default(1);
+            $table->string('numero_facture')->unique();
             $table->foreignId('commande_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('client_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->decimal('montant', 10, 2);
-            $table->string('statut');
-            $table->date('date_paiement');
+            $table->string('statut')->default('Non payée');
+            $table->date('date_facture');
 
             $table->timestamps();
         });

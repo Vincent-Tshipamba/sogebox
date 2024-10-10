@@ -2,16 +2,14 @@
 
 namespace Database\Seeders;
 
+use App\Models\Pointing;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class PointingSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        //
+        Pointing::factory(100)->create();
     }
 }

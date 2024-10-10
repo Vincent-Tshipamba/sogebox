@@ -4,20 +4,14 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Approbation>
- */
 class ApprobationFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         return [
-            //
+            'validation' => $this->faker->word(),
+            'date' => $this->faker->date(),
+            'bon_id' => \App\Models\Bon::factory(), // Utilisation de la factory de Bon
         ];
     }
 }

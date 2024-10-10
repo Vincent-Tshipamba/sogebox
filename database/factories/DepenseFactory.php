@@ -4,20 +4,18 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Depense>
- */
 class DepenseFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+
     public function definition(): array
     {
         return [
-            //
+            'compte_id' => \App\Models\Compte::factory(), // Utilisation de la factory de Compte
+            'description' => $this->faker->sentence(),
+            'montant' => $this->faker->randomFloat(2, 10, 1000), // Montant entre 10 et 1000
+            'date_depense' => $this->faker->date(),
+            'categorie' => $this->faker->word(),
         ];
+
     }
 }

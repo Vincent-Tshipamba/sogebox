@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('motif_paiements', function (Blueprint $table) {
             $table->id();
             $table->uuid('_id')->unique();
-            $table->string('libelle');
+            $table->text('libelle');
             $table->timestamps();
         });
     }

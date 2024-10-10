@@ -12,6 +12,7 @@ return new class extends Migration
             $table->id();
             $table->uuid('_id');
             $table->foreignId('employe_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('projet_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->date('date');
             $table->string('statut');
             $table->text('description')->nullable();

@@ -2,22 +2,20 @@
 
 namespace Database\Factories;
 
+use App\Models\Projet;
+use App\Models\ModeLivraison;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Livraison>
- */
 class LivraisonFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         return [
-            //
+            'projet_id' => Projet::factory(), // Utilisation de la factory de Projet
+            'date_debut' => $this->faker->date(),
+            'date_echeance' => $this->faker->date(),
+            'adresse_livraison' => $this->faker->address(),
+            'mode_livraison_id' => ModeLivraison::factory(), // Utilisation de la factory de ModeLivraison
         ];
     }
 }
